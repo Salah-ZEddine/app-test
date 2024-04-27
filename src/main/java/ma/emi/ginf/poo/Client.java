@@ -1,5 +1,6 @@
 package ma.emi.ginf.poo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,8 +36,18 @@ public abstract class Client {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	
-	
+	public void addCommande(ArrayList<Double> detailCommande) {
+		//tout sous hypothese tout les produits sont en stock
+		Commande maCommande = new Commande(this);
+		mesCommandes.put(maCommande.getNumero(), maCommande);
+	}
+	public double clalculEncours() {
+		double somme = 0;
+		for (Commande cmd : mesCommandes.values()) {
+			if (!cmd.getIsPaid()) {
+				somme = somme + cmd.totalCommandePrice();
+			}
+		}
+		return somme;
+	}
 }

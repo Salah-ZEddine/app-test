@@ -10,6 +10,7 @@ public class DetailCommande {
 		this.produit = produit;
 		this.prixVenteReel = prixVenteReel;
 	}
-	
-	
+	public double getPrixVenteReel() {
+		return prixVenteReel;
+	}
 }

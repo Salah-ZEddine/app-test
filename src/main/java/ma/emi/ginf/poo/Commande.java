@@ -11,6 +11,7 @@ public class Commande {
 	private LocalDate dateCommande;
 	private Client owner;
 	private List<DetailCommande> dts ;
+	private Boolean isPaid;
 	
 	public Commande(Client client) {
 		this.numero = KeyGenerator.getKey();
@@ -19,34 +20,42 @@ public class Commande {
 		this.dts = new ArrayList<DetailCommande>();
 	}
 
-
 	public int getNumero() {
 		return numero;
 	}
-
 
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
-
 	public LocalDate getDateCommande() {
 		return dateCommande;
 	}
-
 
 	public void setDateCommande(LocalDate dateCommande) {
 		this.dateCommande = dateCommande;
 	}
 
-
 	public Client getOwner() {
 		return owner;
 	}
-
 
 	public void setOwner(Client owner) {
 		this.owner = owner;
 	}
 
+	public Boolean getIsPaid() {
+		return isPaid;
+	}
+
+	public void setIsPaid(Boolean paid) {
+		isPaid = paid;
+	}
+
+	public double totalCommandePrice(){
+		double total = 0;
+		for(DetailCommande d : dts)
+			total = total + d.getPrixVenteReel();
+		return total;
+	}
 }
