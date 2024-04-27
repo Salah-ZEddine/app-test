@@ -36,10 +36,12 @@ public abstract class Client {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public void addCommande(ArrayList<Double> detailCommande) {
-		//tout sous hypothese tout les produits sont en stock
+	public void addCommande(ArrayList<DetailCommande> detailCommande) {
 		Commande maCommande = new Commande(this);
-		mesCommandes.put(maCommande.getNumero(), maCommande);
+		for(DetailCommande d : detailCommande) {
+			maCommande.ajouterCommande(d);
+		}
+		this.mesCommandes.put(maCommande.getNumero(), maCommande);
 	}
 	public double clalculEncours() {
 		double somme = 0;

@@ -12,6 +12,8 @@ public class Commande {
 	private Client owner;
 	private List<DetailCommande> dts ;
 	private Boolean isPaid;
+	private LocalDate dateLivraison;
+	private CommandStatus status = new CommandInit();
 	
 	public Commande(Client client) {
 		this.numero = KeyGenerator.getKey();
@@ -52,10 +54,39 @@ public class Commande {
 		isPaid = paid;
 	}
 
+	public List<DetailCommande> getDts() {
+		return dts;
+	}
 	public double totalCommandePrice(){
 		double total = 0;
 		for(DetailCommande d : dts)
 			total = total + d.getPrixVenteReel();
 		return total;
+	}
+	public void facture(){
+		System.out.println("..........Bon de facture..............");
+		for(DetailCommande d : dts){
+			System.out.println(d);
+		}
+		System.out.println("prix est : " + totalCommandePrice());
+		System.out.println("..........Bon de facture..............");
+	}
+
+	public LocalDate getDateLivraison() {
+		return dateLivraison;
+	}
+
+	public void setDateLivraison(LocalDate dateLivraison) {
+		this.dateLivraison = dateLivraison;
+	}
+
+	public void ajouterCommande(DetailCommande details){
+		if(details.getQte()>details.getProduit().getStock()){
+			System.out.println("rupture de stock pour la commande "+ this.getNumero());
+			status = new CommandInit();
+		}
+		this.dts.add(details);
+		details.getProduit().setStock(details.getProduit().getStock()-details.getQte());
+		System.out.println("Produit ajoutee!");
 	}
 }

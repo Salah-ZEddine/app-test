@@ -13,4 +13,11 @@ public class DetailCommande {
 	public double getPrixVenteReel() {
 		return prixVenteReel;
 	}
+
+	public int getQte(){
+		return qte;
+	}
+	public Produit getProduit() {
+		return produit;
+	}
 }
