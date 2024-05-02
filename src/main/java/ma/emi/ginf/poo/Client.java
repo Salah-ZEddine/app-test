@@ -1,5 +1,6 @@
 package ma.emi.ginf.poo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,5 +52,12 @@ public abstract class Client {
 			}
 		}
 		return somme;
+	}
+	public void afficheHistorique(LocalDate debut, LocalDate fin) {
+		for (Commande cmd : mesCommandes.values()) {
+			if(cmd.getDateCommande().isAfter(debut) && cmd.getDateCommande().isBefore(fin)){
+				System.out.println(cmd);
+			}
+		}
 	}
 }

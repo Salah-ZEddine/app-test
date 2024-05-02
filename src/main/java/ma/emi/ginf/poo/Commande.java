@@ -89,4 +89,14 @@ public class Commande {
 		details.getProduit().setStock(details.getProduit().getStock()-details.getQte());
 		System.out.println("Produit ajoutee!");
 	}
+	@Override
+	public String toString(){
+		String paid = "payee";
+		if(!getIsPaid()){
+			paid = "n/'est pas payee";
+			return "La commande de numero : "+ this.numero + "de date : " + this.dateCommande +"est "+ paid;
+		}
+		return "La commande de numero : "+ this.numero + "de date : " + this.dateCommande +"est "+ paid+
+				"et livree le : "+ this.dateLivraison;
+	}
 }
