@@ -1,4 +1,4 @@
-package ma.emi.ginf.poo;
+package ma.emi.ginf.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

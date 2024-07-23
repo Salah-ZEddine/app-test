@@ -1,4 +1,4 @@
-package ma.emi.ginf.poo;
+package ma.emi.ginf.domain;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

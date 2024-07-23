@@ -1,4 +1,4 @@
-package ma.emi.ginf.poo;
+package ma.emi.ginf.domain;
 
 public class CommandInit implements CommandStatus {
     @Override

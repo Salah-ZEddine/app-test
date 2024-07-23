@@ -1,4 +1,4 @@
-package ma.emi.ginf.poo.helper;
+package ma.emi.ginf.domain.helper;
 
 public class KeyGenerator {
 	

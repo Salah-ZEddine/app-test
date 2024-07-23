@@ -1,10 +1,10 @@
-package ma.emi.ginf.poo;
+package ma.emi.ginf.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import ma.emi.ginf.poo.helper.KeyGenerator;
+import ma.emi.ginf.domain.helper.KeyGenerator;
 
 public class Commande {
 	private int numero;
